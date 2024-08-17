@@ -1,4 +1,13 @@
-async function main(globalVar) {
+async function main() {
+
+    const globalVarName = prompt("Enter the name of the global variable containing the selected request(s): ");
+
+    const globalVar = window[globalVarName];
+
+    if (!globalVar) {
+        console.error(`Global variable '${globalVarName}' not found.`);
+        return;
+    }
 
     async function enumerateRequest(request) {
         // Copy URL
